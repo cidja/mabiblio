@@ -13,17 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cartoons', function (Blueprint $table) {
+        Schema::create('novels', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('serie');
-            $table->bigInteger('isbn');
-            $table->integer('page_count', );
-            $table->integer('volume_number');
-            $table->boolean('finish');
-            $table->longText('cover');
-            $table->date('begin_at');
-            $table->date('end_at');
+            
             $table->timestamps();
         });
     }
@@ -35,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cartoons');
+        Schema::dropIfExists('novels');
     }
 };

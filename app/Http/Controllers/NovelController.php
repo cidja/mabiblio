@@ -12,8 +12,16 @@ class NovelController extends Controller
         $novels = Novel::all();
         
 
-        return view('livres', compact('novels'));
+        return view('novels', compact('novels'));
     }
+
+    public function show($id){ //affiche uniquement un livre en particulier
+        $novel = Novel::findOrFail($id); //findOrFail permet si pas d'id de renvoyer une 404
+        
+        return view('novel', [
+            'novel' => $novel
+        ]);
+    } 
 
     public function create()
     {

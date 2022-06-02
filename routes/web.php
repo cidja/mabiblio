@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [NovelController::class, 'index'])->name('welcome');
 Route::name('novels.')->group(function(){
-    Route::get('/novels/create',[NovelController::class, 'create'])->name('createnovels');
-    Route::post('/novels/create', [NovelController::class, 'store'])->name('store');
+    Route::get('/novels/create',[NovelController::class, 'create'])->name('createnovels'); // route qui affiche form createnovels
+    Route::post('/novels/create', [NovelController::class, 'store'])->name('store'); // route qui permet de store les infos rentrées dans createnovels
+    Route::get('/novels/{id}', [NovelController::class, 'show'])->whereNumber('id')->name('show'); //route pour afficher 1 titre en particulier en cliquant dessus sur livres.blade
 });
 
 Route::get('/contact', [PostController::class, 'contact'])->name('contact');

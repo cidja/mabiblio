@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NovelController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [PostController::class, 'index'])->name('welcome');
+Route::get('/', [NovelController::class, 'index'])->name('welcome');
+Route::name('novels.')->group(function(){
+    Route::get('/novels/create',[NovelController::class, 'create'])->name('createnovels');
+    Route::post('/novels/create', [NovelController::class, 'store'])->name('store');
+});
+
 Route::get('/contact', [PostController::class, 'contact'])->name('contact');

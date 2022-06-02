@@ -21,12 +21,12 @@ return new class extends Migration
             $table->bigInteger('isbn');
             $table->string('book_type');
             $table->integer('pages_nb');
-            $table->integer('volume_nb');
-            $table->boolean('active');
-            $table->boolean('finish');
+            $table->integer('volumes_nb');
+            $table->boolean('active')->default(0);
+            $table->boolean('finish')->default(0);
             //$table->string('cover') mettre dans une migrations novel_image
-            $table->dateTime('begin_at');
-            $table->dateTime('end_at');
+            $table->dateTime('begin_at')->nullable();
+            $table->dateTime('end_at')->nullable();
             $table->timestamps();
         });
     }

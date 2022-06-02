@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreign('novels_id')->references('id')->on('novels');
 
             $table->unsignedBigInteger('cartoons_id'); // pour la relation entre carton_id et comment
-            $table->foreign('cartons_id')->references('id')->on('cartoons');
+            $table->foreign('cartoons_id')->references('id')->on('cartoons');
             $table->timestamps();
         });
     }

@@ -79,7 +79,7 @@
         <input type="text" class="form-control" id="cover" name="cover" placeholder="rentrez l'adresse du lien de l'image">
     </div> --}}
     <div class="d-flex justify-content-center">
-        <button type="submit" class='bg-green-500'>Créer</button>
+        <button type="submit" class='bg-success'>Créer</button>
     </div>
 </form>
 

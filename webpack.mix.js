@@ -11,7 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
+/* J'ai viré tailwind pour repasser sous bootstrap source: https://larabiz.fr/blog/comment-bootstrap-5-laravel 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
     ]);
+    */
+    
+    mix
+    .css('resources/css/app.css', 'public/css')
+    .js('resources/js/app.js', 'public/js')
+    .version()
+    

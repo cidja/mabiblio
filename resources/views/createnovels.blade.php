@@ -3,7 +3,7 @@
 @section('content')
 <h1>Création d'un nouveau livre</h1>
 
-<form action="{{ route('novels.store') }}" method="post">
+<form action="{{ route('novels.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="title">Titre de l'ouvrage</label>
@@ -57,6 +57,13 @@
         <label for="volumes_nb">Nombre de tomes :</label>
         <input type="text" class="form-control" id="count_volume" name="volumes_nb" value="0"">
         <small id="count_volumeHelp" class="form-text text-muted">Si aucun autre tome mettre 0</small>
+    </div>
+
+    <div class="form-group">
+        <label for="cover">Image de couverture :</label>
+        <input type="file" class="block"
+        id="cover" name="cover"
+        accept="image/png, image/jpeg, image/jpg">
     </div>
 
     {{-- <div class="form-group">

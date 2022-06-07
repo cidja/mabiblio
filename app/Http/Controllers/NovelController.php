@@ -32,14 +32,22 @@ class NovelController extends Controller
 
     public function store(Request $request)
     {
-        
-        $filename = time() . '.' . $request->file('cover')->extension(); //nom de l'image qui sera enregistré
-        //requête qui va enregistrer le fichier dans le dossier public 
+        //si on ne rentre pas d'image nous affichons une image par défaut c'est la condition d'en dessous 
+        if($request->cover){
+            $filename = time() . '.' . $request->file('cover')->extension(); //nom de l'image qui sera enregistré
+            //requête qui va enregistrer le fichier dans le dossier public 
         $path = $request->file('cover')->storeAs(
             'covers',
             $filename,
             'public'
         );
+        } else
+        {
+            $filename = 'covers/default.png'; //chemin de l'image par défaut
+            $path = $filename; //$path obligatoire pour la suite en dessous
+        }
+        
+        
 
         $novel = Novel::create([
             'title'     => $request->title,
@@ -56,5 +64,6 @@ class NovelController extends Controller
         $image->path = $path;
 
         $novel->image()->save($image);
+
     }
 }

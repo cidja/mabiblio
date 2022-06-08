@@ -69,7 +69,8 @@ class NovelController extends Controller
             'pages_nb'          => $request->pages_nb,
             'volumes_nb'        => $request->volumes_nb,
             'begin_at'          => $request->begin_at,
-            'cover'             => $filename
+            'cover'             => $filename,
+            'finish'            => $request->finish,
         ]);
        
         $image= new Image();

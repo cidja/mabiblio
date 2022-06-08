@@ -80,6 +80,23 @@
         accept="image/png, image/jpeg, image/jpg">
     </div>
 
+    <div class="form-group">
+        <fieldset>
+            <legend>Avez-vous fini ce livre : </legend>
+        
+            <div>
+              <input type="radio" id="yes" name="finish" value="1">
+              <label for="yes">oui j'ai déjà lu ce livre</label>
+            </div>
+        
+            <div>
+              <input type="radio" id="no" name="finish" value="0">
+              <label for="no">Non je n'ai pas encore lu ce livre</label>
+            </div>
+
+        </fieldset>
+    </div>
+
     {{-- <div class="form-group">
         <label for="rate">Une note </label>
         <select class="form-control" id="rate" name="rate">

@@ -17,7 +17,11 @@ class Novel extends Model
         'isbn',
         'book_type',
         'pages_nb',
-        'volumes_nb'
+        'volumes_nb',
+        'active',
+        'finish',
+        'begin_at',
+        'end_at',
     ];
 
     public function image()

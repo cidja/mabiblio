@@ -13,6 +13,9 @@
             <div>
             Isbn : {{ $novel->isbn }}
             </div>
+            <div>
+                Date de démarrage de lecture : {{ $novel->begin_at }}
+                </div>
 
         </div>
         <div class="col-sm">

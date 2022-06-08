@@ -3,23 +3,32 @@
 @section('content')
 <h1>Création d'un nouveau livre</h1>
 
+@if ($errors->any()) {{-- variable crée automatiquement après la vérification dans le post controller --}}
+    @foreach ($errors->all() as $error )
+        <div class="text-red-600"> {{ $error }} </div>
+        @endforeach
+@endif
+
 <form action="{{ route('novels.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="title">Titre de l'ouvrage</label>
-        <input type="text" class="form-control" id="title" name="title" required autofocus>
+        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ old('title') }}">
+        @error('title')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
     </div>
     <div class="form-group">
         <label for="author_firstname">Prénom de l'auteur</label>
-        <input type="text" class="form-control" id="author" name="author_firstname" required>
+        <input type="text" class="form-control" id="author" name="author_firstname" value="{{ old('author_firstname') }}" required> {{-- {{old}} pour récupérer les value quand on valide un formulaire et qu'il ne passe pas le validator https://laravel.com/docs/9.x/validation#quick-displaying-the-validation-errors  --}}
     </div>
     <div class="form-group">
         <label for="author_lastname">Nom de l'auteur</label>
-        <input type="text" class="form-control" id="author" name="author_lastname" required>
+        <input type="text" class="form-control" id="author" name="author_lastname" value="{{ old('author_lastname') }}" required>
     </div>
     <div class="form-group">
         <label for="isbn">ISBN</label>
-        <input type="number" class="form-control" id="isbn" name="isbn" placeholder="exemple : 2253257419">
+        <input type="number" class="form-control" id="isbn" name="isbn" placeholder="exemple : 2253257419" value="{{old('isbn') }}">
         <small id="isbnHelp" class="form-text text-muted">Si ISBN inconnu ne rien mettre</small>
     </div>
     {{-- <div class="form-group">
@@ -42,7 +51,7 @@
 
     <div class="form-group">
         <label for="book_type">format : </label>
-        <select class="form-control" id="publication" name="book_type">
+        <select class="form-control" id="publication" name="book_type" value="{{ old('book_type') }}">
             <option>papier</option>
             <option>kindle</option>
         </select>
@@ -50,13 +59,18 @@
 
     <div class="form-group">
         <label for="pages_nb">Nombre de pages : </label>
-        <input type="number" class="form-control" id="page_count" name="pages_nb">
+        <input type="number" class="form-control" id="page_count" name="pages_nb" value="{{ old('pages_nb') }}">
     </div>
 
     <div class="form-group">
         <label for="volumes_nb">Nombre de tomes :</label>
-        <input type="text" class="form-control" id="count_volume" name="volumes_nb" value="0"">
+        <input type="number" class="form-control" id="count_volume" name="volumes_nb" value="{{ old('volumes_nb')??0 }}" >
         <small id="count_volumeHelp" class="form-text text-muted">Si aucun autre tome mettre 0</small>
+    </div>
+
+    <div class="form-group">
+        <label for="begin_at">Date de démarrage de lecture :</label>
+        <input type="date" class="form-control" id="begin_at" name="begin_at" value="{{ old('begin_at')??Carbon\Carbon::now()->format('d/m/Y') }}" >
     </div>
 
     <div class="form-group">

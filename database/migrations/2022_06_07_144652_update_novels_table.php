@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::table('novels', function (Blueprint $table){
             $table->bigInteger('isbn')->nullable()->change();
             $table->integer('volumes_nb')->default(0)->change();
+            $table->date('begin_at')->change();
+            $table->date('end_at')->change();
         });
     }
 

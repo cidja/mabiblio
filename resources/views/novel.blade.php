@@ -14,8 +14,24 @@
             Isbn : {{ $novel->isbn }}
             </div>
             <div>
+                Nombre de pages : {{ $novel->pages_nb }}
+            </div>
+            <div>
+                Support : {{ $novel->book_type }}
+            </div>
+            <div>
                 Date de démarrage de lecture : {{ $novel->begin_at }}
-                </div>
+            </div>
+            <div>
+                Livre lu : {{ $novel->finish ? 'oui' : 'non'}} {{-- si finish 1 sinon 0 alors pas fini --}}
+            </div>
+            <div>
+                Nombre de volume(s) : {{ $novel->volumes_nb !=0 ? $novel->volumes_nb : 'un seul volume'}} {{-- si volume_nb différent de 0 alors on affiche volume_nb sinon affiche un seul volume --}}
+            </div>
+            <div>
+                Livre ajouté le : {{ $novel->created_at}}
+            </div>
+
 
         </div>
         <div class="col-sm">

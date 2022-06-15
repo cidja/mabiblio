@@ -147,6 +147,18 @@
                 </div>
             </div>
 
+            <div class="mt-4 d-flex justify-content-center flex-column">
+                <div class="d-flex">
+                    <div class="px-2 col">
+                        <button type="button" class="btn btn-primary"><a href="{{ route('novels.update',['id'=> $novel->id]) }}">Modifier</a></button>
+                    </div>
+                    <div class="px-2 col">
+                        <button type="button" class="btn btn-danger">Supprimer</button>
+                    </div>
+                </div>
+                
+            </div>
+
             {{-- <div class="container">
             <section class="mb-4 pt-2 pb-4" id="viewComment">
                 <div class="container">
@@ -160,7 +172,7 @@
                             <div class="comment mb-2">
                                 <div class="row">
                                     <div class="col-md-12 d-flex">
-                                        <span class="ml-2 font-weight-bold"><?= $comment["author"] // Affichage de l'auteur du commentaire ?></span>
+                                        <span class="ml-2 font-weight-bold">?= $comment["author"] // Affichage de l'auteur du commentaire ?></span>
                                         - le ?= $comment["comment_date_fr"]  // Affichage de la date du commentaire ?>
                                     </div>
                                     <div class="col-md-9 ml-2">

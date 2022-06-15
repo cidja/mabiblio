@@ -79,4 +79,12 @@ class NovelController extends Controller
         $novel->image()->save($image);
         return redirect()->route('welcome');
     }
+
+    public function update($id,Request $request){
+        $novel = Novel::findOrFail($id);
+        return view('updatenovels', [
+            'novel' => $novel
+        ]);
+
+    }
 }

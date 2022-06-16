@@ -150,7 +150,7 @@
             <div class="mt-4 d-flex justify-content-center flex-column">
                 <div class="d-flex">
                     <div class="px-2 col">
-                        <button type="button" class="btn btn-primary"><a href="{{ route('novels.update',['id'=> $novel->id]) }}">Modifier</a></button>
+                        <button type="button" class="btn btn-primary"><a class=" text-white text-uppercase" href="{{ route('novels.update',['id'=> $novel->id]) }}">Modifier</a></button>
                     </div>
                     <div class="px-2 col">
                         <button type="button" class="btn btn-danger">Supprimer</button>

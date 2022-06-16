@@ -75,22 +75,24 @@
 
     <div class="form-group">
         <label for="cover">Image de couverture :</label>
-        <input type="file" class="block"
-        id="cover" name="cover"
-        accept="image/png, image/jpeg, image/jpg">
+        <div>
+            <input type="file" class="form-control-file"
+            id="cover" name="cover"
+            accept="image/png, image/jpeg, image/jpg">
+        </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-check">
         <fieldset>
             <legend>Avez-vous fini ce livre : </legend>
         
             <div>
-              <input type="radio" id="yes" name="finish" value="1">
+              <input class="form-check-input" type="radio" id="yes" name="finish" value="1" checked>
               <label for="yes">oui j'ai déjà lu ce livre</label>
             </div>
         
             <div>
-              <input type="radio" id="no" name="finish" value="0">
+              <input class="form-check-input" type="radio" id="no" name="finish" value="0">
               <label for="no">Non je n'ai pas encore lu ce livre</label>
             </div>
 

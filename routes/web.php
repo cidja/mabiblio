@@ -20,7 +20,7 @@ Route::name('novels.')->group(function(){
     Route::post('/novels/create', [NovelController::class, 'store'])->name('store'); // route qui permet de store les infos rentrées dans createnovels
     Route::get('/novels/{id}', [NovelController::class, 'show'])->whereNumber('id')->name('show'); //route pour afficher 1 titre en particulier en cliquant dessus sur livres.blade
     Route::get('/novels/update/{id}', [NovelController::class, 'update'])->whereNumber('id')->name('update');
-    Route::post('/novels/update/{id}', [NovelController::class, 'saveupdate'])->whereNumber('id')->name('saveupdate');
+    Route::post('/novels/update/{id}', [NovelController::class, 'storeupdate'])->whereNumber('id')->name('storeupdate');
 });
 
 Route::get('/contact', [PostController::class, 'contact'])->name('contact');

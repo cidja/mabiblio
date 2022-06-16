@@ -133,4 +133,10 @@ class NovelController extends Controller
         $novel->image()->save($image); */
         return redirect()->route('novels.show',['id'=> $request->id]);  //renvoi la vue show
     }
+
+    public function delete($id){
+        $novel = Novel::find($id);
+        $novel->delete();
+        return redirect()->route('welcome');
+    }
 }

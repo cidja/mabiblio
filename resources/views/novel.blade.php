@@ -153,7 +153,7 @@
                         <button type="button" class="btn btn-primary"><a class=" text-white text-uppercase" href="{{ route('novels.update',['id'=> $novel->id]) }}">Modifier</a></button>
                     </div>
                     <div class="px-2 col">
-                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <button type="button" class="btn btn-danger"><a class=" text-white text-uppercase" href="{{ route('novels.delete',['id'=> $novel->id]) }}">Supprimer</a></button>
                     </div>
                 </div>
                 

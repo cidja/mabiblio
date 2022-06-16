@@ -21,6 +21,7 @@ Route::name('novels.')->group(function(){
     Route::get('/novels/{id}', [NovelController::class, 'show'])->whereNumber('id')->name('show'); //route pour afficher 1 titre en particulier en cliquant dessus sur livres.blade
     Route::get('/novels/update/{id}', [NovelController::class, 'update'])->whereNumber('id')->name('update');
     Route::post('/novels/update/{id}', [NovelController::class, 'storeupdate'])->whereNumber('id')->name('storeupdate');
+    Route::get('/novels/delete/{id}', [NovelController::class, 'delete'])->name('delete');
 });
 
 Route::get('/contact', [PostController::class, 'contact'])->name('contact');

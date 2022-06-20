@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="mt-5">f</div>
+
 <div class="mt-5 container oneInfos d-flex justify-content-center flex-column">
         <div class="cover text-center">
             <img class="imgOneCover +" src="{{ Storage::url($novel->image->path) }}" alt="image de couverture du livre" title="image de couverture du livre {{ $novel->title }}">{{-- pour afficher l'image qui est enregistré dans la base de données source: https://youtu.be/fh18mHPA5E8?t=1863--}}
@@ -153,7 +153,8 @@
                         <button type="button" class="btn btn-primary"><a class=" text-white text-uppercase" href="{{ route('novels.update',['id'=> $novel->id]) }}">Modifier</a></button>
                     </div>
                     <div class="px-2 col">
-                        <button type="button" class="btn btn-danger"><a class=" text-white text-uppercase" href="{{ route('novels.delete',['id'=> $novel->id]) }}">Supprimer</a></button>
+                        {{-- confirm pour valider la suppression source:  https://stackoverflow.com/questions/32984859/delete-confirmation-in-laravel--}}
+                        <button type="button" onclick="return confirm('Confirmer la suppression du livre ?')" class="btn btn-danger"><a class=" text-white text-uppercase" href="{{ route('novels.delete',['id'=> $novel->id]) }}">Supprimer</a></button>
                     </div>
                 </div>
                 

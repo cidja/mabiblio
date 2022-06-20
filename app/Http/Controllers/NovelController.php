@@ -6,6 +6,7 @@ use App\Models\Image;
 use App\Models\Novel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
 class NovelController extends Controller
@@ -38,6 +39,7 @@ class NovelController extends Controller
             'title'     => ['required','min:5','max:255','unique:novels'], // titre requis, min 5 maxi 255 caractères et unique dans la table posts new Uppercase fait référence à rule uppercase
             'author_firstname'  => ['required'],
             'author_lastname'   => ['required'],
+            'pages_nb'          => ['required'],
 
         ]); 
 
@@ -77,7 +79,9 @@ class NovelController extends Controller
         $image->path = $path;
 
         $novel->image()->save($image);
-        return redirect()->route('welcome');
+        //affiche une banniere quand success : https://www.tutsmake.com/laravel-8-flash-message-example-tutorial/
+        return Redirect()->route('welcome')->withSuccess("Livre bien ajouté pour le voir cliquer");
+        //return redirect()->route('welcome');
     }
 
     public function update($id){
@@ -137,6 +141,6 @@ class NovelController extends Controller
     public function delete($id){
         $novel = Novel::find($id);
         $novel->delete();
-        return redirect()->route('welcome');
+        return redirect()->route('welcome')->with('info', $novel->title . " supprimé");
     }
 }

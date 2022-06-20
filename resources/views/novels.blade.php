@@ -1,12 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+
 <h1>Liste des livres</h1>
 
     {{-- <h3><a href="{{ route('novels.show',['id'=> $novel->id]) }}"> {{  $novel->title }}</h3>
         <div class="cover text-center">
             <img class="img-thumbnail" src="{{ Storage::url($novel->image->path) }}" alt="image de couverture du livre" title="image de couverture du livre {{ $novel->title }}">{{-- pour afficher l'image qui est enregistré dans la base de données source: https://youtu.be/fh18mHPA5E8?t=1863--
         </div> --}}
+        <div class="message">
+            @if(Session::has('success')) {{-- pour informer l'utilisateur que le lire a bient était ajouté --}}
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                </div>
+            @endif
+            @if(Session::has('info')) {{-- Pour informer l'utilisateur que le livre a bien était supprimé --}}
+                <div class="alert alert-info" role='alert'>
+                    {{Session::get('info')}}
+                </div>
+            @endif
+        </div>
         <div class="container">
             
             <div class="row">
@@ -51,6 +64,7 @@
                     </a>
                 </div>
                 @endforeach
+
             </div>
         </div>
        

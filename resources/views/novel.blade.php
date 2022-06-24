@@ -5,11 +5,17 @@
 
 
 <div class="mt-5 container oneInfos d-flex justify-content-center flex-column">
-        <div class="cover text-center">
-            <img class="imgOneCover +" src="{{ Storage::url($novel->image->path) }}" alt="image de couverture du livre" title="image de couverture du livre {{ $novel->title }}">{{-- pour afficher l'image qui est enregistré dans la base de données source: https://youtu.be/fh18mHPA5E8?t=1863--}}
+    @if(Session::has('info')) {{-- Pour informer l'utilisateur que le livre a bien était supprimé --}}
+    <div class="alert alert-info" role='alert'>
+        {{Session::get('info')}}
+    </div>
+@endif
+    <div class="row">
+        <div class="cover col-4 text-center">
+            <img class="img-thumbnail" src="{{ Storage::url($novel->image->path) }}" alt="image de couverture du livre" title="image de couverture du livre {{ $novel->title }}">{{-- pour afficher l'image qui est enregistré dans la base de données source: https://youtu.be/fh18mHPA5E8?t=1863--}}
             {{$novel->image ? $novel->image->path : "pas d'image"}} {{-- affiche le path --}}
         </div>
-        <section class="infosNovel d-flex flex-column align-items-center">
+        <section class="col-8 infosNovel d-flex flex-column align-items-center justify-content-center">
             <h3>Infos du livre </h3>
             <div class="title">
                 <div class="d-flex">
@@ -159,6 +165,9 @@
                 </div>
                 
             </div>
+        </section>
+    </div>
+        
 
             {{-- <div class="container">
             <section class="mb-4 pt-2 pb-4" id="viewComment">
@@ -246,8 +255,8 @@
             </div>
             <!--<button id="next">Next</button>
             <div id="result"></div>  !--> --}}
-        </section>
-    </div>
+   
+</div>
     
 
 @endsection

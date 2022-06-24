@@ -135,7 +135,7 @@ class NovelController extends Controller
        /*  $image= new Image();
         $image->path = $path;
         $novel->image()->save($image); */
-        return redirect()->route('novels.show',['id'=> $request->id]);  //renvoi la vue show
+        return redirect()->route('novels.show',['id'=> $request->id])->with('info', "infos bien modifié");  //renvoi la vue show
     }
 
     public function delete($id){

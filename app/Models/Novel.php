@@ -23,7 +23,9 @@ class Novel extends Model
         'begin_at',
         'end_at',
     ];
-
+    const BOOKTYPE = [
+        'papier', 'ebook', 'hentai', 'tamere', 'clé à choc','manchot','manche chaud'
+    ];
     public function image()
     {
         return $this->hasOne(Image::class);

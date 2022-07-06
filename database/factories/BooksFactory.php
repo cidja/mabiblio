@@ -18,12 +18,19 @@ class BooksFactory extends Factory
     public function definition()
     {
         return [
-            /* 'title' => $this->faker->name(),
+             'title' => $this->faker->name(),
             'author_firstname' => $this->faker->firstName(),
             'author_lastname'  => $this->faker->lastName(),
             'isbn' => $this->faker->unique()->Str::random(19),
-            'pages_nb'  => $this->faker->Str::random(3), */
-            
+            'pages_nb'  => $this->faker->Str::random(3), 
+        /* for ($i = 0 ; $i <10 ; $i++){
+            Novel::firstOrCreate([
+                'title' => $faker->name(),
+                'author_firstname' => $faker->firstName(),
+                'author_lastname'  => $faker->lastName(),
+                'isbn' => $faker->unique()->Str::random(19),
+                'pages_nb'  => $faker->Str::random(3),
+            ]); */
         ];
     }
 }

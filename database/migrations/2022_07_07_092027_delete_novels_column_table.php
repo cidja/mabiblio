@@ -14,10 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('novels', function (Blueprint $table){
-            $table->bigInteger('isbn')->nullable()->change();
-            $table->integer('volumes_nb')->default(0)->change();
-            $table->date('begin_at')->change();
-            $table->date('end_at')->change();
+            $table->dropColumn('volumes_nb');
         });
     }
 
@@ -28,12 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        
         Schema::table('novels', function (Blueprint $table){
-            $table->bigInteger('isbn');
             $table->integer('volumes_nb');
-            $table->dateTime('begin_at')->nullable();
-            $table->dateTime('end_at')->nullable();
-        }); 
+        });
     }
 };

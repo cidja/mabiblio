@@ -65,13 +65,7 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-    
-        <div class="form-group">
-            <label for="volumes_nb">Nombre de tomes :</label>
-            <input type="number" class="form-control" id="count_volume" name="volumes_nb" value="{{ old('volumes_nb')??0 }}" >
-            <small id="count_volumeHelp" class="form-text text-muted">Si aucun autre tome mettre 0</small>
-        </div>
-    
+        
         <div class="form-group">
             <label for="begin_at">Date de démarrage de lecture :</label>
             <input type="date" class="form-control" id="begin_at" name="begin_at" value="{{ old('begin_at')??Carbon\Carbon::now()->format('d/m/Y') }}" >

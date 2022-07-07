@@ -70,12 +70,7 @@
                     <input type="number" class="form-control" id="page_count" name="pages_nb" value="{{ $novel->pages_nb ? $novel->pages_nb : old('pages_nb') }}">
                 </div>
             
-                <div class="form-group">
-                    <label for="volumes_nb">Nombre de tomes :</label>
-                    <input type="number" class="form-control" id="count_volume" name="volumes_nb" value="{{ $novel->volumes_nb ? $novel->volumes_nb :old('volumes_nb')??0 }}" >
-                    <small id="count_volumeHelp" class="form-text text-muted">Si aucun autre tome mettre 0</small>
-                </div>
-            
+                
                 <div class="form-group">
                     <label for="begin_at">Date de démarrage de lecture :</label>
                     <input type="date" class="form-control" id="begin_at" name="begin_at" value="{{ $novel->begin_at ? $novel->begin_at :old('begin_at')??Carbon\Carbon::now()->format('d/m/Y') }}" >

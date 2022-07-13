@@ -14,9 +14,10 @@ class NovelController extends Controller
     public function index()
     {
         $novels = Novel::all();
+        $count = Novel::count(); 
         
 
-        return view('novels', compact('novels'));
+        return view('novels', compact('novels','count'));
     }
 
     public function show($id){ //affiche uniquement un livre en particulier
@@ -125,7 +126,6 @@ class NovelController extends Controller
             'isbn'              => $isbn,
             'book_type'         => $request->book_type,
             'pages_nb'          => $request->pages_nb,
-            'volumes_nb'        => $request->volumes_nb,
             'begin_at'          => $request->begin_at,
             /* 'cover'             => $filename, */ 
             'finish'            => $request->finish,

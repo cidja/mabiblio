@@ -32,10 +32,10 @@
             <input type="number" class="form-control" id="isbn" name="isbn" placeholder="exemple : 2253257419" value="{{old('isbn') }}">
             <small id="isbnHelp" class="form-text text-muted">Si ISBN inconnu ne rien mettre</small>
         </div>
-        {{-- <div class="form-group">
+        <div class="form-group">
             <label for="genre">Genre</label>
             <select class="form-control" id="genre" name="genre">
-            <option>Auto biographie</option>
+                <option>Auto biographie</option>
                 <option>Biographie</option>
                 <option>Classique</option>
                 <option>Developpement personnel</option>
@@ -48,7 +48,7 @@
                 <option>Thriller</option>
                 <option>Vie quotidienne</option>
             </select>
-        </div> --}}
+        </div>
     
         <div class="form-group">
             <label for="book_type">format : </label>

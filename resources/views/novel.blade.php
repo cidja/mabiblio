@@ -20,7 +20,7 @@
             <div class="title">
                 <div class="d-flex">
                     <div class="fieldDescription">Titre :</div>
-                    <div class="dataDescription">  {{ $novel->title }}</div>
+                    <div class="dataDescription">{{  $novel->title }}</div>
                 </div>
             </div>
 
@@ -111,13 +111,7 @@
                     </div>
                 </div>
 
-            <div class="countVolume">
-                <div class="d-flex">
-                    <div class="fieldDescription">
-                        Nombre de volume(s) : {{ $novel->volumes_nb !=0 ? $novel->volumes_nb : 'un seul volume'}} {{-- si volume_nb différent de 0 alors on affiche volume_nb sinon affiche un seul volume --}}
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="isbn">
                 <div class="d-flex">
